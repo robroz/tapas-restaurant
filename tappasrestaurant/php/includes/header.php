@@ -13,7 +13,7 @@
 <body>
     <div class="navbar-container">
         <h1 id="rest-title">Holy-Guacamoly</h1>
-        <h4 id="timer">1U 45MIN</h4>
+        <h4 id="timer">1U 48MIN</h4>
     </div>
     <script src="../javascript/menu.js"></script>
 </body>
