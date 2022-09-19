@@ -1,0 +1,35 @@
+body{
+    margin:0;
+}
+
+.border{
+    background-color: lightgray;
+    padding: 20px;
+    position: relative;
+    top: 300px;
+}
+
+.border-text{
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+
+.product{
+  
+    background-color: lightgray;
+    padding: 25px;
+    position: relative;
+    top: 320px;
+}
+
+.Image{
+    
+   
+
+  
+
+   
+
+}
