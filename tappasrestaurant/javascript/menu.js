@@ -4,6 +4,9 @@ const foodAmount = document.querySelectorAll(".amount")
 const minFood = document.querySelectorAll(".min-amount")
 const plusfood = document.querySelectorAll(".plus-amount")
 
+
+
+//navbar
 for (let x = 0; x < navItems.length; x++) {
     navItems[0].classList.add("selected")
     navItems[x].addEventListener("click", function () {
@@ -16,7 +19,7 @@ for (let x = 0; x < navItems.length; x++) {
 
 
 
-
+//amount dish chooser
 for(let y= 0; y < foodAmount.length; y++){
     minFood[y].addEventListener("click", function(){
             const ammount = this.parentElement.querySelector(".amount"); 
@@ -30,3 +33,18 @@ for(let y= 0; y < foodAmount.length; y++){
         ammount.textContent = ammount.textContent = parseInt(ammount.textContent) + 1;
       })
 } 
+
+
+//dish from database
+function dishRequest(type){
+    $.ajax({
+        type: "POST", 
+        url: "../php/menu.php", 
+        data: {
+            type:type
+        },
+        encode: false,
+      }).done(function (data) {
+    
+      });
+}

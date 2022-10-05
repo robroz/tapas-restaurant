@@ -107,11 +107,11 @@ body {
 }
 
 .food-img {
-    background-image: url(../fotos/bread.webp);
+    background-image: url(../fotos/dishImgs/bread.webp);
     height: auto;
     width: 37%;
     background-size: contain;
-    margin: 23px 0;
+    margin: 10px 0;
     background-repeat: no-repeat;
 }
 
