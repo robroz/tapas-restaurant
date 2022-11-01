@@ -1,35 +1,211 @@
 body{
     margin:0;
+    height: 100vh;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navbar-container{
+    display:flex;
+    box-shadow: 75px -3px 0px 7px #000000, #000000 0px 2px 2px inset;
+    justify-content: space-between;
+}
+
+#rest-title{
+    margin: 0px 0 0 15px;
+    font-size: 95px;
+    font-weight: normal;
+    font-family: 'Jim Nightshade', cursive;
+}
+#timer{
+    margin-left: 20px;
+    margin: 18px 40px 0 25px;
+    font-size: 19px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#side-title{
+    font-size: 40px;
+    margin: 20px 0 0 0;
+    font-family: 'Jim Nightshade', cursive;
+    margin-left: 30px;
 }
 
 .border{
     background-color: lightgray;
-    padding: 20px;
-    position: relative;
-    top: 300px;
+    height: 80px;
 }
 
 .border-text{
     display: flex;
     justify-content: space-evenly;
-    
+    font-size: 35px;
+    font-weight: 1000;
+    margin: 0px 0px;
+    height: 100%;
+}
 
+.border-text>p{
+    margin:auto 50px;
+    font-family: 'Jim Nightshade', cursive;
+}
+
+.product-container{
+    min-height: auto;
+    max-height: 523px;
+    overflow: scroll;
+    height: 523px;
+    flex-direction: column;
 }
 
 .product{
-  
-    background-color: lightgray;
-    padding: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 0px 80px 80px 0px;
+    height: 147px;
+    width: 95%;
     position: relative;
-    top: 320px;
+    padding: 10px 0;
 }
 
-.Image{
+.product-color{
+position: absolute; 
+background-color: aqua;
+height: 45%;
+width: 37%;
+top: 90px; 
+left: 0; 
+z-index: -3;  
+border-radius: 0px 80px 80px 0px;
+}
+
+
+.Image-flex{
+    display: flex;
+}
+
+.product-desc{
+    display: flex;
+    margin: auto;
+}
+
+.food-desc{
+font-size: 30px;
+margin-bottom: 10px;
+}
+
+.bread{
+    background-image: url(../fotos/bread.png);
+    background-repeat: no-repeat;
+    width: 199px;
+    height: auto;
+    margin-right: 14px;
+    background-size: contain;
+}
+
+.food{
+    padding-left: 50px;
+}
+
+.product-amt{
+    font-size: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50px;
+}
+.product-amt>button{
+    background-color: white;
+    border: 0;
+    font-size: 30px;
+    padding: 0px;
+}
+
+.product-prc{
+    font-size: 25px;
+    margin: 0;
+}
+
+.order-container{
+    display: flex;
+    overflow: hidden;
+    height: 159px;
+    flex-direction: row-reverse;
+}
     
-   
 
+.order-button{
+    width: auto;
+    margin: 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.order-button>button{
+    border-radius: 25px;
+    background: #6c6c6c;
+    width: 370px;
+    height: 71px;
+    font-size: 42px;
+    font-family: "Times New Roman", Times, serif;
+    border: none;
+    margin: 15px;
+    color: white;
+}
+
+.total{
+    font-size: 32px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: space-around;
+    display: flex;
+}
+
+.number{
+    text-align: center;
+}
+
+.total>p{
+    margin: 0px 
+}
+
+.gerechten{
+    font-size: 30px;
+    margin: auto;
+}
+
+.footer{
+    background: #D9D9D9;
+    min-height: 130px;
+    display: flex;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.menu-select{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.menu-icon{
+    background-image: url(../fotos/food-icon.png);
+    margin: auto;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
   
-
-   
-
+}
+.order-icon{
+    background-image: url(../fotos/shopping-cart.png);
+    margin: auto;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+}
+.footer-txt{
+    text-align: center;
+    font-size: 30px;
+    margin: 0 auto;
 }

@@ -1,29 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/winkelmand.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+    
 
     <title>winkelmand</title>
 </head>
+
 <body>
-    <div class="border">
-        <div class="border-text">
-            <h1>Gerecht</h1>
-            <h1>Hoeveelheid</h1>
-            <h1>Prijs</h1>
+    <div class="navbar-container">
+        <h1 id="rest-title">Flappas</h1>
+        <div class="">
+            <h4 id="timer">1U 48MIN</h4>
         </div>
     </div>
-    <div class="product">
-        <div class="Image">
-            <img src="Placeholder.png" alt="Eten">
+    <div class="content">
+        <h4 id="side-title">Bestellingen</h4>
+        <div class="product-container">
+            <div class="product">
+                <span class="product-color"></span>
+                <div class="Image-flex">
+                    <span class="bread"></span>
+                    <div class="product-info">
+                        <p class="food-desc">Brood alioli /tapenade</p>
+                        <p class="product-prc">€14,36</p>
+                    </div>
+                </div>
+                <div class="product-amt">
+                    <button class ="add">+</button>
+                    <div class ="number">0</div>
+                    <button class = "remove">-</button>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-color"></span>
+                <div class="Image-flex">
+                    <span class="bread"></span>
+                    <div class="product-info">
+                        <p class="food-desc">Brood alioli /tapenade</p>
+                        <p class="product-prc">€14,36</p>
+                    </div>
+                </div>
+                <div class="product-amt">
+                    <button class ="add">+</button>
+                    <div class ="number">0</div>
+                    <button class = "remove">-</button>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-color"></span>
+                <div class="Image-flex">
+                    <span class="bread"></span>
+                    <div class="product-info">
+                        <p class="food-desc">Brood alioli /tapenade</p>
+                        <p class="product-prc">€14,36</p>
+                    </div>
+                </div>
+                <div class="product-amt">
+                    <button class ="add">+</button>
+                    <div class ="number">0</div>
+                    <button class = "remove">-</button>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-color"></span>
+                <div class="Image-flex">
+                    <span class="bread"></span>
+                    <div class="product-info">
+                        <p class="food-desc">Brood alioli /tapenade</p>
+                        <p class="product-prc">€14,36</p>
+                    </div>
+                </div>
+                <div class="product-amt">
+                    <button class ="add">+</button>
+                    <div class ="number">0</div>
+                    <button class = "remove">-</button>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-color"></span>
+                <div class="Image-flex">
+                    <span class="bread"></span>
+                    <div class="product-info">
+                        <p class="food-desc">Brood alioli /tapenade</p>
+                        <p class="product-prc">€14,36</p>
+                    </div>
+                </div>
+                <div class="product-amt">
+                    <button class ="add">+</button>
+                    <div class ="number">0</div>
+                    <button class = "remove">-</button>
+                </div>
+            </div>
         </div>
-        
 
+        <div class="total">
+            <p class="total-dish">Gerechten: <span id="totalGerechten">0</span></p>
+            <p class="total-price">Prijs: <span id="totalPrice">0</span></p>
 
-
+        </div>
+        <div class="order-button">
+            <button type="button">Bestellen</button>
+        </div>
     </div>
+    <div class="footer">
+        <div class="menu-select">
+            <span class="menu-icon"></span>
+            <p class="footer-txt">Menu</p>
+        </div>
+        <div class="menu-select">
+            <span class="order-icon"></span>
+            <p class="footer-txt">Order</p>
+        </div>
+    </div>
+
+<script src="../javascript/Winkelmand.js"></script>    
 </body>
+
 </html>

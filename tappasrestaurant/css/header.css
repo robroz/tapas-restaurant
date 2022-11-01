@@ -32,6 +32,7 @@ body {
 
 .nav-container{
     width: 33%;
+    display: flex;
 }
 
 
