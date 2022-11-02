@@ -47,6 +47,7 @@ function foodImg(data) {
 
     for (let x = 0; x < data.length; x++) {
         let dish = data[x]
+        console.log(dish)
         dishImg[x].style.backgroundImage = 'url(' + dish.imgPath + ')';
     }
 
