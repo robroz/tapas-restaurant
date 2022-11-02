@@ -73,7 +73,7 @@ ul li a:hover{
 }
 .center{
     height: 300px;
-    background-image: url(Img/Payment.gif);
+    background-image: url(../fotos/Payment.gif);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
