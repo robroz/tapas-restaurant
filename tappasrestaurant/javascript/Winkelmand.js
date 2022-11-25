@@ -2,10 +2,7 @@ let add = document.getElementsByClassName('add');
 let remove = document.getElementsByClassName('remove');
 const amountCont = document.querySelectorAll('.product-amt');
 let totalamount = document.getElementById("totalGerechten");
-const productContainer = document.querySelector('.product-container')
-const bgcolor = document.querySelectorAll(".product-info")
 
-//
 const dishOne = {
     // constructor(name, price , imgpath ,type)
     name: "ham met meloen",
@@ -120,6 +117,7 @@ for (let x = 0; x < dishes.length; x++) {
         let ammount = this.parentElement.querySelector('.number')
         ammount.textContent = parseInt(ammount.textContent) + 1;
         totalamount.textContent = parseInt(totalamount.textContent) + 1;
+
     })
 
     remove[x].addEventListener("click", function () {
