@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.cash-button{
+    position: absolute;
+    top: 80%    ;
+    left: 37%;
+}
+.dropdown{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+button{
+    position: relative;
+    width: 200px;
+    height:   60px;
+    font-size: 24px;
+    background: #B9D7DD;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(61, 114, 163)    ;
+    border-radius: 30px;
+
+}
+button:hover{
+    background-color: #80beca;
+
+}
+ul{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: white;
+    transform-origin: top;
+    transform: perspective(1000px) rotateX(-90deg);
+
+    transition: 0.2s;
+    
+}
+ul.active{
+    transform: perspective(1000px) rotate(0deg);
+    transition: 0.2s;
+
+}
+ul li{
+    list-style: none;
+    border-radius: 30px;
+
+}
+ul li a{
+    border-radius: 30px;
+
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background:#B9D7DD;
+    color: rgb(61, 114, 163);
+    border-bottom: 1px solid rgb(0, 0, 0.2);
+    transition: 0.5s;
+
+}
+ul li a:hover{
+    background-color: #80beca;
+
+}
+.center{
+    height: 300px;
+    background-image: url(../fotos/Payment.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.centre-text{
+    margin-left: auto;
+}
+
+.side-color{
+    height:  1025px;
+    width: 90px;
+    background-color: #B9D7DD;
+}
+
+.container{
+    height: 100%;
+}
+img{
+    position:   absolute;
+    top: 40%;
+    left: 36.2%;
+}
+h2{
+    position: absolute;
+    left: 45%;
+    font-weight: normal;
+    font-family: 'Jim Nightshade', cursive;
+}

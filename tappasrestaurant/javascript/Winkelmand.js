@@ -5,14 +5,7 @@ let totalamount = document.getElementById("totalGerechten");
 const productContainer = document.querySelector('.product-container')
 const bgcolor = document.querySelectorAll(".product-info")
 
-
-
-
-
-
-
-
-
+//
 const dishOne = {
     // constructor(name, price , imgpath ,type)
     name: "ham met meloen",
@@ -58,7 +51,7 @@ const dishSix = {
     name: "Fles sauvignon blanc",
     price: "23.20",
     imgpath: "../fotos/dishImgs/fles-sauvignon-blanc.webp",
-    type: 5
+    type: 3
 }
 
 const dishSeven = {
@@ -66,7 +59,7 @@ const dishSeven = {
     name: "Lipton IceTea Green",
     price: "23.32",
     imgpath: "../fotos/dishImgs/lipton-ice-tea-green.webp",
-    type: 6
+    type: 2
 }
 
 const dishEight = {
@@ -74,7 +67,7 @@ const dishEight = {
     name: "Kip Bacon Rolletjes",
     price: "23.32",
     imgpath: "../fotos/dishImgs/kip-baconrolletjes.webp",
-    type: 7
+    type: 6
 }
 
 const dishNine = {
@@ -82,7 +75,7 @@ const dishNine = {
     name: "Kip met Honing mosterdsaus",
     price: "23.32",
     imgpath: "../fotos/dishImgs/kip-met-honing-mosterdsaus.webp",
-    type: 8
+    type: 2
 }
 
 const dishTen = {
@@ -90,17 +83,14 @@ const dishTen = {
     name: "Kipkluifjes",
     price: "20.32",
     imgpath: "../fotos/dishImgs/kipkluifjes.webp",
-    type: 9
+    type: 6
 }
 const dishes = [dishOne, dishTwo, dishThree, dishFour, dishFive, dishSix, dishSeven, dishEight, dishNine, dishTen]
 
 
-
-
-
-
 productContainer.innerHTML = "";
 for (let x = 0; x < dishes.length; x++) {
+    dishes.sort((a, b ) => a.type - b.type);
     let dish = dishes[x]
     let product = document.createElement('li');
     product.className = "product";
@@ -115,7 +105,7 @@ for (let x = 0; x < dishes.length; x++) {
 </div>
 <div class="product-amt">
     <button class ="add">+</button>
-    <div class ="number">0</div>
+    <div class ="number">1</div>
     <button class = "remove">-</button>
 </div>`
 
@@ -130,7 +120,6 @@ for (let x = 0; x < dishes.length; x++) {
         let ammount = this.parentElement.querySelector('.number')
         ammount.textContent = parseInt(ammount.textContent) + 1;
         totalamount.textContent = parseInt(totalamount.textContent) + 1;
-
     })
 
     remove[x].addEventListener("click", function () {
@@ -144,7 +133,8 @@ for (let x = 0; x < dishes.length; x++) {
 
 
 
-    }) 
+    })
+  
     const bgcolor = document.querySelectorAll(".product-color")
 
         switch (dish.type) {
@@ -181,21 +171,22 @@ for (let x = 0; x < dishes.length; x++) {
         }
 
 }
+checkAmount()
 
+function checkAmount(){
+  
+    let amount = document.querySelectorAll('.number')
+    let ok = 0
+for(let p = 0; p < amount.length; p++){
 
+ let cringe = parseInt(amount[p].textContent)
+ ok += cringe
+ totalamount.textContent = ok
+}
 
-for (let x = 0; x < dishes.length; x++) {
-const result = dishes.filter(checkdish => {
-    return checkdish.type === x;
-});
-console.log(result)
 }
 
 
+console.log(dishes)
 
-  //for (let x = 0; x < dishes.length; x++) {
-     //   let dish = dishes[x]
-    //function checkdish(){ 
-    //return dish.type == 2 
-//}  }
 
