@@ -2,6 +2,7 @@ let add = document.getElementsByClassName('add');
 let remove = document.getElementsByClassName('remove');
 const amountCont = document.querySelectorAll('.product-amt');
 let totalamount = document.getElementById("totalGerechten");
+let productContainer = document.querySelector(".product-container")
 
 const dishOne = {
     // constructor(name, price , imgpath ,type)
