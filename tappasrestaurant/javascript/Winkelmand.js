@@ -4,6 +4,7 @@ const amountCont = document.querySelectorAll('.product-amt');
 let totalamount = document.getElementById("totalGerechten");
 let productContainer = document.querySelector(".product-container")
 
+
 const dishOne = {
     // constructor(name, price , imgpath ,type)
     name: "ham met meloen",
@@ -87,7 +88,7 @@ const dishes = [dishOne, dishTwo, dishThree, dishFour, dishFive, dishSix, dishSe
 
 
 productContainer.innerHTML = "";
-for (let x = 0; x < dishes.length; x++) {
+for (let x = 0; x < dishes.length; x++) {;
     dishes.sort((a, b ) => a.type - b.type);
     let dish = dishes[x]
     let product = document.createElement('li');
