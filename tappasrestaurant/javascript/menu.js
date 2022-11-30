@@ -7,6 +7,7 @@ const foodcontainer = document.querySelector(".food-container")
 
 const dishBanner = document.querySelector("#dishes-img")
 const dishesBanners = ["koudetapas", "vlees", "vegetarische", "vis", "desserts", "could-drinks", "warm-drinks", "bier", "wijn", "Cocktails"]
+const billId = localStorage.getItem("billId");
 
 
 displayDishes(1)
@@ -74,7 +75,7 @@ function loadDishHTML(data) {
     const ammount = foodItem.querySelector(".amount")
 
     plusBtn.addEventListener("click", () => {
-        
+        sendDish(dish)
         ammount.textContent = ammount.textContent = parseInt(ammount.textContent) + 1;
     })
     minBtn.addEventListener("click", () => {
@@ -82,9 +83,53 @@ function loadDishHTML(data) {
             return
         }
         ammount.textContent = ammount.textContent -= 1;
+        removeDish(dish)
     })
 
         foodList.appendChild(foodItem)
-
     }
+}
+ 
+
+function sendDish(dish)
+{
+   const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/Post`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(
+               {
+                "dishid": dish.id,
+                "BillId": bill
+
+                } 
+            ),
+    }).done(function (data) {
+        console.log(data)
+
+    });
+}
+
+function removeDish(dish)
+{
+   const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/delete`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(
+               {
+                "dishid": dish.id,
+                "BillId": bill
+
+                } 
+            ),
+    }).done(function (data) {
+        console.log(data)
+    });
 }
