@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+.top {
+    min-height: 52%;
+    background-image: url(../fotos/startpage/topbg.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    color: white;
+}
+
+.left {
+    width: 50%;
+
+}
+
+.text-cont {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 0 0 25px;
+    justify-content: center;
+    height: auto;
+}
+
+.rest-title {
+    font-size: 150px;
+    margin: -20px 0 -51px 0;
+    font-family: 'Jim Nightshade', cursive;
+    font-weight: lighter;
+    padding-left: 22px;
+}
+
+.rest-text {
+    font-size: 34px;
+    margin: 0;
+    padding-left: 35px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.mountain {
+    background-image: url(../fotos/startpage/mountain.png);
+    height: 187px;
+    width: 475px;
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+
+.img-list {
+    display: flex;
+    height: 180px;
+    width: -webkit-fill-available;
+    margin: auto;
+    position: relative;
+}
+
+.food-img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+#curry {
+    background-image: url(../fotos/startpage/idkcurry.png);
+    filter: grayscale(0.3) brightness(0.2) contrast(1.1) saturate(0.6);
+    height: 155px;
+    width: 300px;
+    opacity: 0.7;
+    transform: rotate(5deg);
+    top: 30px;
+    background-position: right center;
+    right: 0;
+}
+
+#nachos {
+    background-image: url(../fotos/startpage/nachos.png);
+    filter: contrast(1.4) saturate(1.6);
+    opacity: 0.6;
+    transform: rotate(352deg);
+    height: 150px;
+    width: 240px;
+    background-position: left center;
+    left: 0
+}
+
+#tosti{
+    background-image: url(../fotos/startpage/tosti.png);
+    filter: grayscale(0.3) contrast(1.1) saturate(0.6) brightness(0.8);
+    opacity: 0.4;
+    height: 228px;
+    width: 198px;
+    transform: rotate(5deg);
+    top: -100px;
+    background-position: center;
+    right: 20px;
+}
+
+
+
+.bottom {
+    margin: 0;
+    width: 100%;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    margin: 0 auto;
+    height: 100%;
+    margin-top: 15px;
+}
+
+
+.info-text{
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    font-weight: bolder;
+}
+.number-input {
+    width: 98%;
+    height: 75px;
+    border: solid 3px #f25743;
+    text-align: center;
+    font-size: 40px;
+    padding: 0 3px;
+    margin: 50px auto 35px;
+}
+
+.number-input:focus {
+    outline: none;
+}
+
+.start-btn {
+    height: 75px;
+    width: 100%;
+    background-color: #ef5643;
+    display: flex;
+}
+
+.start{
+    font-size: 30px;
+    margin: auto;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+#line{
+    height: 2px;
+    background-color: #90807e;
+    margin: 30px auto 20px;
+    width: 100%;
+}
+
+.language-btn {
+    width: 100%;
+    height: 75px;
+    background-color: #6464641a;
+    display: flex;
+    position: relative;
+}
+
+.language {
+    margin: auto;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #5a5656c4;
+}
+
+.language-container{
+    position: absolute;
+    margin: auto;
+    height: 74px;
+    width: 45%;
+    left: 0;
+    right: 0;
+    top: -95px;
+    background-color: #f0f0f0;
+    border: solid 2px #cbcbcb;
+    display: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.arrow-down {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: -19px;
+    border-top: 20px solid #b9b9b9;
+    opacity: 0;
+    display: none;
+    transition: all 0.5s;
+  }
+
+  .visible{
+    display: flex;
+    opacity:1 !important;
+  }
+
+  #eng-btn{
+    background-image: url(../fotos/startpage/eng-flag.png);
+    height: 55%;
+    width: 85%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto 20px;
+    cursor: pointer;
+  }
+
+  #nl-btn{
+    background-image: url(../fotos/startpage/nl-flag.png);
+    height: 60%;
+    width: 60%;
+    background-size: contain;
+    margin: auto 20px;
+    cursor: pointer;
+  }

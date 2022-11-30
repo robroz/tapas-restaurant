@@ -7,7 +7,11 @@ const foodcontainer = document.querySelector(".food-container")
 const infobtn = document.querySelector(".info-icon")
 const dishBanner = document.querySelector("#dishes-img")
 const dishesBanners = ["koudetapas", "vlees", "vegetarische", "vis", "desserts", "could-drinks", "warm-drinks", "bier", "wijn", "Cocktails"]
+
 const popup = document.getElementById('popup-container');
+
+const billId = localStorage.getItem("billId");
+
 
 
 displayDishes(1)
@@ -75,7 +79,7 @@ function loadDishHTML(data) {
     const ammount = foodItem.querySelector(".amount")
 
     plusBtn.addEventListener("click", () => {
-        
+        sendDish(dish)
         ammount.textContent = ammount.textContent = parseInt(ammount.textContent) + 1;
     })
     minBtn.addEventListener("click", () => {
@@ -83,10 +87,10 @@ function loadDishHTML(data) {
             return
         }
         ammount.textContent = ammount.textContent -= 1;
+        removeDish(dish)
     })
 
         foodList.appendChild(foodItem)
-
     }
 }
 
@@ -132,6 +136,7 @@ function removeDish(dish)
     }).done(function (data) {
         console.log(data)
     });
+
 }
 
 
@@ -148,8 +153,4 @@ let closebtn = document.querySelector(".popup-close")
 
 
 
-    
 
-     
-    
-   
