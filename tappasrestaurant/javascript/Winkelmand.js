@@ -130,9 +130,6 @@ for (let x = 0; x < dishes.length; x++) {;
         }
         ammount.textContent = ammount.textContent -= 1;
         totalamount.textContent = totalamount.textContent -= 1;
-
-
-
     })
   
     const bgcolor = document.querySelectorAll(".product-color")
