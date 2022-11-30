@@ -10,7 +10,7 @@ const bgcolor = document.querySelectorAll(".product-info")
 const dishOne = {
     // constructor(name, price , imgpath ,type)
     name: "ham met meloen",
-    price: "8.00",
+    price: "8,-",
     imgpath: "../fotos/dishImgs/ham-met-meloen.webp",
     type: 0
 }

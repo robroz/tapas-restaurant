@@ -263,6 +263,8 @@ display: flex;
     margin: auto;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: black;
 }
 .menu-icon{
     background-image: url(../fotos/food-icon.png);
@@ -279,9 +281,15 @@ display: flex;
     width: 64px;
     height: 64px;
     background-repeat: no-repeat;
+    margin-left: 0px
 }
 .footer-txt{
     text-align: center;
     font-size: 30px;
     margin: 0 auto;
+}
+
+#winkelmand{
+    text-decoration: none;
+    display: flex
 }
