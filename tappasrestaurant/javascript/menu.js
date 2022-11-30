@@ -4,9 +4,14 @@ const minFood = document.querySelectorAll(".min-amount")
 const plusfood = document.querySelectorAll(".plus-amount")
 const foodList = document.querySelector(".food-list")
 const foodcontainer = document.querySelector(".food-container")
-
+const infobtn = document.querySelector(".info-icon")
 const dishBanner = document.querySelector("#dishes-img")
 const dishesBanners = ["koudetapas", "vlees", "vegetarische", "vis", "desserts", "could-drinks", "warm-drinks", "bier", "wijn", "Cocktails"]
+
+const popup = document.getElementById('popup-container');
+
+const billId = localStorage.getItem("billId");
+
 
 
 displayDishes(1)
@@ -74,7 +79,7 @@ function loadDishHTML(data) {
     const ammount = foodItem.querySelector(".amount")
 
     plusBtn.addEventListener("click", () => {
-        
+        sendDish(dish)
         ammount.textContent = ammount.textContent = parseInt(ammount.textContent) + 1;
     })
     minBtn.addEventListener("click", () => {
@@ -82,9 +87,70 @@ function loadDishHTML(data) {
             return
         }
         ammount.textContent = ammount.textContent -= 1;
+        removeDish(dish)
     })
 ///belangrijik
         foodList.appendChild(foodItem)
-
     }
 }
+
+
+function sendDish(dish)
+{
+   const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/Post`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(
+               {
+                "dishid": dish.id,
+                "BillId": bill
+
+                } 
+            ),
+    }).done(function (data) {
+        console.log(data)
+
+    });
+}
+
+function removeDish(dish)
+{
+   const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/delete`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(
+               {
+                "dishid": dish.id,
+                "BillId": bill
+
+                } 
+            ),
+    }).done(function (data) {
+        console.log(data)
+    });
+
+}
+
+
+infobtn.addEventListener("click", function(){
+    popup.classList.toggle("visible");
+})
+
+
+
+let closebtn = document.querySelector(".popup-close")
+  closebtn.addEventListener("click", function(){ 
+    popup.classList.toggle("visible");
+     })
+
+
+
+

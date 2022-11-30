@@ -6,6 +6,7 @@ const productContainer = document.querySelector('.product-container')
 const bgcolor = document.querySelectorAll(".product-info")
 
 //
+
 const dishOne = {
     // constructor(name, price , imgpath ,type)
     name: "ham met meloen",
@@ -89,6 +90,7 @@ const dishes = [dishOne, dishTwo, dishThree, dishFour, dishFive, dishSix, dishSe
 
 
 productContainer.innerHTML = "";
+
 for (let x = 0; x < dishes.length; x++) {
     dishes.sort((a, b ) => a.type - b.type);
     let dish = dishes[x]
