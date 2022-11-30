@@ -4,10 +4,14 @@ const minFood = document.querySelectorAll(".min-amount")
 const plusfood = document.querySelectorAll(".plus-amount")
 const foodList = document.querySelector(".food-list")
 const foodcontainer = document.querySelector(".food-container")
-
+const infobtn = document.querySelector(".info-icon")
 const dishBanner = document.querySelector("#dishes-img")
 const dishesBanners = ["koudetapas", "vlees", "vegetarische", "vis", "desserts", "could-drinks", "warm-drinks", "bier", "wijn", "Cocktails"]
+
+const popup = document.getElementById('popup-container');
+
 const billId = localStorage.getItem("billId");
+
 
 
 displayDishes(1)
@@ -89,7 +93,7 @@ function loadDishHTML(data) {
         foodList.appendChild(foodItem)
     }
 }
- 
+
 
 function sendDish(dish)
 {
@@ -132,4 +136,21 @@ function removeDish(dish)
     }).done(function (data) {
         console.log(data)
     });
+
 }
+
+
+infobtn.addEventListener("click", function(){
+    popup.classList.toggle("visible");
+})
+
+
+
+let closebtn = document.querySelector(".popup-close")
+  closebtn.addEventListener("click", function(){ 
+    popup.classList.toggle("visible");
+     })
+
+
+
+
