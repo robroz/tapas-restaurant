@@ -91,6 +91,50 @@ function loadDishHTML(data) {
 }
 
 
+function sendDish(dish)
+{
+   const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/Post`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(
+               {
+                "dishid": dish.id,
+                "BillId": bill
+
+                } 
+            ),
+    }).done(function (data) {
+        console.log(data)
+
+    });
+}
+
+function removeDish(dish)
+{
+   const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/delete`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(
+               {
+                "dishid": dish.id,
+                "BillId": bill
+
+                } 
+            ),
+    }).done(function (data) {
+        console.log(data)
+    });
+}
+
+
 infobtn.addEventListener("click", function(){
     popup.classList.toggle("visible");
 })
