@@ -2,13 +2,15 @@ let add = document.getElementsByClassName('add');
 let remove = document.getElementsByClassName('remove');
 const amountCont = document.querySelectorAll('.product-amt');
 let totalamount = document.getElementById("totalGerechten");
-let productContainer = document.querySelector(".product-container")
+const productContainer = document.querySelector('.product-container')
+const bgcolor = document.querySelectorAll(".product-info")
 
+//
 
 const dishOne = {
     // constructor(name, price , imgpath ,type)
     name: "ham met meloen",
-    price: "8.00",
+    price: "8,-",
     imgpath: "../fotos/dishImgs/ham-met-meloen.webp",
     type: 0
 }
@@ -88,7 +90,8 @@ const dishes = [dishOne, dishTwo, dishThree, dishFour, dishFive, dishSix, dishSe
 
 
 productContainer.innerHTML = "";
-for (let x = 0; x < dishes.length; x++) {;
+
+for (let x = 0; x < dishes.length; x++) {
     dishes.sort((a, b ) => a.type - b.type);
     let dish = dishes[x]
     let product = document.createElement('li');
@@ -119,7 +122,6 @@ for (let x = 0; x < dishes.length; x++) {;
         let ammount = this.parentElement.querySelector('.number')
         ammount.textContent = parseInt(ammount.textContent) + 1;
         totalamount.textContent = parseInt(totalamount.textContent) + 1;
-
     })
 
     remove[x].addEventListener("click", function () {
@@ -130,6 +132,9 @@ for (let x = 0; x < dishes.length; x++) {;
         }
         ammount.textContent = ammount.textContent -= 1;
         totalamount.textContent = totalamount.textContent -= 1;
+
+
+
     })
   
     const bgcolor = document.querySelectorAll(".product-color")

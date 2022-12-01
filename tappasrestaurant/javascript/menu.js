@@ -89,7 +89,7 @@ function loadDishHTML(data) {
         ammount.textContent = ammount.textContent -= 1;
         removeDish(dish)
     })
-
+///belangrijik
         foodList.appendChild(foodItem)
     }
 }
