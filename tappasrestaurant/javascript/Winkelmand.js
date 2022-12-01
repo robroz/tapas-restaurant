@@ -4,96 +4,50 @@ const amountCont = document.querySelectorAll('.product-amt');
 let totalamount = document.getElementById("totalGerechten");
 const productContainer = document.querySelector('.product-container')
 const bgcolor = document.querySelectorAll(".product-info")
-
+const billId = localStorage.getItem("billId");
 //
 
-const dishOne = {
-    // constructor(name, price , imgpath ,type)
-    name: "ham met meloen",
-    price: "8,-",
-    imgpath: "../fotos/dishImgs/ham-met-meloen.webp",
-    type: 0
-}
+// const dishOne = {
+//     // constructor(name, price , imgpath ,type)
+//     name: "ham met meloen",
+//     price: "8,-",
+//     imgpath: "../fotos/dishImgs/ham-met-meloen.webp",
+//     type: 0
+// }
 
-const dishTwo = {
-    // constructor(name, price , imgpath ,type)
-    name: "Cheese Cake",
-    price: "34,23",
-    imgpath: "../fotos/dishImgs/cheesecake.webp",
-    type: 1
-}
+// const dishTwo = {
+//     // constructor(name, price , imgpath ,type)
+//     name: "Cheese Cake",
+//     price: "34,23",
+//     imgpath: "../fotos/dishImgs/cheesecake.webp",
+//     type: 1
+// }
 
-const dishThree = {
-    // constructor(name, price , imgpath ,type)
-    name: "friet",
-    price: "23,-",
-    imgpath: "../fotos/dishImgs/zoete-aardappelfriet.webp",
-    type: 0
-}
 
-const dishFour = {
-    // constructor(name, price , imgpath ,type)
-    name: "Gehaktballentjes",
-    price: "2.32",
-    imgpath: "../fotos/dishImgs/gehaktballetjes.webp",
-    type: 3
-}
-
-const dishFive = {
-    // constructor(name, price , imgpath ,type)
-    name: "Gambas",
-    price: "233.32",
-    imgpath: "../fotos/dishImgs/gambas.webp",
-    type: 4
-}
-
-const dishSix = {
-    // constructor(name, price , imgpath ,type)
-    name: "Fles sauvignon blanc",
-    price: "23.20",
-    imgpath: "../fotos/dishImgs/fles-sauvignon-blanc.webp",
-    type: 3
-}
-
-const dishSeven = {
-    // constructor(name, price , imgpath ,type)
-    name: "Lipton IceTea Green",
-    price: "23.32",
-    imgpath: "../fotos/dishImgs/lipton-ice-tea-green.webp",
-    type: 2
-}
-
-const dishEight = {
-    // constructor(name, price , imgpath ,type)
-    name: "Kip Bacon Rolletjes",
-    price: "23.32",
-    imgpath: "../fotos/dishImgs/kip-baconrolletjes.webp",
-    type: 6
-}
-
-const dishNine = {
-    // constructor(name, price , imgpath ,type)
-    name: "Kip met Honing mosterdsaus",
-    price: "23.32",
-    imgpath: "../fotos/dishImgs/kip-met-honing-mosterdsaus.webp",
-    type: 2
-}
-
-const dishTen = {
-    // constructor(name, price , imgpath ,type)
-    name: "Kipkluifjes",
-    price: "20.32",
-    imgpath: "../fotos/dishImgs/kipkluifjes.webp",
-    type: 6
-}
-const dishes = [dishOne, dishTwo, dishThree, dishFour, dishFive, dishSix, dishSeven, dishEight, dishNine, dishTen]
-
+// const dishes = [dishOne, dishTwo, ]
+RequestOrders()
 
 productContainer.innerHTML = "";
-
-for (let x = 0; x < dishes.length; x++) {
+function RequestOrders() {
+    $.ajax({
+        type: "GET",
+        url: `https://localhost:7269/api/Order/dishes/${billId}`,
+        encode: false,
+    }).done(function (data) {
+        for (let x = 0; x < data.dishes.length; x++) {
+            let Order = data.dishes[x]
+            console.log(Order.dish)
+        }
+        
+       displayOrders(data.dishes)
+       checkAmount()
+    });
+}
+function displayOrders(dishes)
+{
+    for (let x = 0; x < dishes.length; x++) {
     dishes.sort((a, b ) => a.type - b.type);
-    let dish = dishes[x]
+    let Order = dishes[x]
     let product = document.createElement('li');
     product.className = "product";
     product.innerHTML = `
@@ -101,13 +55,12 @@ for (let x = 0; x < dishes.length; x++) {
 <div class="Image-flex">
     <span class="img"></span>
     <div class="product-info">
-        <p class="food-desc">${dish.name}</p>
-        <p class="product-prc">${dish.price}</p>
+        <p class="food-desc">${Order.dish.name}</p>
     </div>
 </div>
 <div class="product-amt">
     <button class ="add">+</button>
-    <div class ="number">1</div>
+    <div class ="number">${Order.ammount}</div>
     <button class = "remove">-</button>
 </div>`
 
@@ -116,7 +69,7 @@ for (let x = 0; x < dishes.length; x++) {
 
 
     const img = document.querySelectorAll(".img")
-    img[x].style.backgroundImage = "url(" + dish.imgpath + ")"
+    img[x].style.backgroundImage = "url(" + Order.dish.imgPath + ")"
 
     add[x].addEventListener("click", function () {
         let ammount = this.parentElement.querySelector('.number')
@@ -139,7 +92,7 @@ for (let x = 0; x < dishes.length; x++) {
   
     const bgcolor = document.querySelectorAll(".product-color")
 
-        switch (dish.type) {
+        switch (Order.dish.type) {
             case 0:          
                 bgcolor[x].style.backgroundColor = "#6cffe9"
                 break;
@@ -172,8 +125,9 @@ for (let x = 0; x < dishes.length; x++) {
                 
         }
 
-}
-checkAmount()
+}}
+
+
 
 function checkAmount(){
   
@@ -189,6 +143,5 @@ for(let p = 0; p < amount.length; p++){
 }
 
 
-console.log(dishes)
 
 
