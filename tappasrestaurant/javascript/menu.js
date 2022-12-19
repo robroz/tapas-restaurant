@@ -7,9 +7,8 @@ const foodcontainer = document.querySelector(".food-container")
 const infobtn = document.querySelector(".info-icon")
 const dishBanner = document.querySelector("#dishes-img")
 const dishesBanners = ["koudetapas", "vlees", "vegetarische", "vis", "desserts", "could-drinks", "warm-drinks", "bier", "wijn", "Cocktails"]
-
+const quitBtn = document.querySelector(".exitBtn")
 const popup = document.getElementById('popup-container');
-
 const billId = localStorage.getItem("billId");
 
 
@@ -19,9 +18,9 @@ displayDishes(1)
 for (let x = 0; x < navItems.length; x++) {
     navItems[0].classList.add("selected")
 
-   
 
-     navItems[x].addEventListener("click", function () {
+
+    navItems[x].addEventListener("click", function () {
         foodcontainer.scrollTo(0, 0)
 
         for (let x = 0; x < navItems.length; x++) {
@@ -63,9 +62,9 @@ function loadDishHTML(data) {
     for (let x = 0; x < data.length; x++) {
         let dish = data[x]
 
-    let foodItem = document.createElement( 'li' );
-    foodItem.className = "food";
-    foodItem.innerHTML = `
+        let foodItem = document.createElement('li');
+        foodItem.className = "food";
+        foodItem.innerHTML = `
     <li class="food">
     <span class="food-img"></span>
     <div class="food-desc">
@@ -74,65 +73,59 @@ function loadDishHTML(data) {
     <div class="food-amount"><span class="min-amount">-</span><p class="amount">0</p><span class="plus-amount">+</span></div>
     </div>`
 
-    const minBtn = foodItem.querySelector(".min-amount")
-    const plusBtn = foodItem.querySelector(".plus-amount")
-    const ammount = foodItem.querySelector(".amount")
+        const minBtn = foodItem.querySelector(".min-amount")
+        const plusBtn = foodItem.querySelector(".plus-amount")
+        const ammount = foodItem.querySelector(".amount")
 
-    plusBtn.addEventListener("click", () => {
-        sendDish(dish)
-        ammount.textContent = ammount.textContent = parseInt(ammount.textContent) + 1;
-    })
-    minBtn.addEventListener("click", () => {
-        if (ammount.textContent == "0") {
-            return
-        }
-        ammount.textContent = ammount.textContent -= 1;
-        removeDish(dish)
-    })
-///belangrijik
+        plusBtn.addEventListener("click", () => {
+            sendDish(dish)
+            ammount.textContent = ammount.textContent = parseInt(ammount.textContent) + 1;
+        })
+        minBtn.addEventListener("click", () => {
+            if (ammount.textContent == "0") {
+                return
+            }
+            ammount.textContent = ammount.textContent -= 1;
+            removeDish(dish)
+        })
+        ///belangrijik
         foodList.appendChild(foodItem)
     }
 }
 
 
-function sendDish(dish)
-{
-   const bill = localStorage.getItem("billId")
+function sendDish(dish) {
+    const bill = localStorage.getItem("billId")
     $.ajax({
         type: "POST",
         url: `https://localhost:7269/api/Order/Post`,
         encode: false,
         dataType: "json",
         contentType: "application/json",
-        data: JSON.stringify(
-               {
-                "dishid": dish.id,
-                "BillId": bill
+        data: JSON.stringify({
+            "dishid": dish.id,
+            "BillId": bill
 
-                } 
-            ),
+        }),
     }).done(function (data) {
         console.log(data)
 
     });
 }
 
-function removeDish(dish)
-{
-   const bill = localStorage.getItem("billId")
+function removeDish(dish) {
+    const bill = localStorage.getItem("billId")
     $.ajax({
         type: "POST",
         url: `https://localhost:7269/api/Order/delete`,
         encode: false,
         dataType: "json",
         contentType: "application/json",
-        data: JSON.stringify(
-               {
-                "dishid": dish.id,
-                "BillId": bill
+        data: JSON.stringify({
+            "dishid": dish.id,
+            "BillId": bill
 
-                } 
-            ),
+        }),
     }).done(function (data) {
         console.log(data)
     });
@@ -140,17 +133,28 @@ function removeDish(dish)
 }
 
 
-infobtn.addEventListener("click", function(){
+
+
+infobtn.addEventListener("click", function () {
     popup.classList.toggle("visible");
 })
 
 
 
 let closebtn = document.querySelector(".popup-close")
-  closebtn.addEventListener("click", function(){ 
+closebtn.addEventListener("click", function () {
     popup.classList.toggle("visible");
-     })
+})
 
 
+quitBtn.addEventListener("click", function () {
+    const exitBtn = document.querySelector(".quit-btn")
+    const exitCont = document.querySelector(".exit-cont")
+    exitCont.classList.add("active")
+
+    exitBtn.addEventListener("click", function () {
+        window.location.href = "http://localhost/Github/tappasrestaurant/pages/betaalpagina.html"
+    })
 
 
+})
