@@ -24,8 +24,9 @@ function createId() {
         data: JSON.stringify(
                {
                     "persons": persons,
-                    "tableId": 12,
+                    "tableId": 15,
                     "roundNumber": 1
+                    //status = 0 in api
                 } 
             ),
 
