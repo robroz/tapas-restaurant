@@ -1,25 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="../css/betaal.css">
+
+    <title>Document</title>
 </head>
 
 <body>
     <div class="container">
         <div class="center">
             <div class="side-color"></div>
-            <div class="side-color"></div>
-            <h2 >Flappas</h2>
+            <h2>Flappas</h2>
+            <div class="bill-cont">
+                <p class="bill-title">Bon</p>
+                <div class="bill-info">
+                <p class="bill-text">gerecht</p>
+                <p class="bill-text">hoeveelheid</p>
+                <p class="bill-text">prijs</p>
+                </div>
+                <div class="orders-cont">
 
-           
+                    <!-- <p class="product">rfefre</p> -->
+                </div>
+                <p id="total-price">€80</p>
+
+            </div>
+
+
             <div class="dropdown">
                 <button id="select-bank">Kies u bank</button>
-                <ul     >
+                <ul>
                     <li><a href="#">Rabobank</a></li>
                     <li><a href="#">Ing</a></li>
                     <li><a href="#">Anb amro</a></li>
@@ -30,10 +45,12 @@
             <div class="cash-button">
                 <button>Liever contant?</button>
             </div>
-           
+            <div class="side-color"></div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="../javascript/betaal.js"> </script>
 </body>
+
 </html>

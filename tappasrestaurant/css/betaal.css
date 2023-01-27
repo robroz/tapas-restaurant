@@ -65,6 +65,7 @@ ul li a{
     color: rgb(61, 114, 163);
     border-bottom: 1px solid rgb(0, 0, 0.2);
     transition: 0.5s;
+    margin: 5px 0;
 
 }
 ul li a:hover{
@@ -86,7 +87,7 @@ ul li a:hover{
 }
 
 .side-color{
-    height:  1025px;
+    height:  1024px;
     width: 90px;
     background-color: #B9D7DD;
 }
@@ -104,4 +105,50 @@ h2{
     left: 45%;
     font-weight: normal;
     font-family: 'Jim Nightshade', cursive;
+}
+
+.bill-cont{
+    margin: auto;
+    height: 330px;
+    width: 290px;
+    border: solid;
+    margin-top: 400px;
+    margin-left: 157px;
+    font-family: 'Jim Nightshade', cursive;
+}
+.product {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.bill-title{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin: 0;
+    margin-bottom: 15px;
+}
+.orders-cont {
+    max-height: 60%;
+    overflow: scroll;
+    height: 60%;
+}
+#total-price {
+    display: flex;
+    justify-content: center
+}
+.bill-info{
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+}
+.bill-text{
+    margin: 0;
+}
+.product-title{
+width: 37%;
+}
+.product-text {
+    width: 10%;
 }

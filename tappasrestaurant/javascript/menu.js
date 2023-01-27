@@ -36,9 +36,10 @@ for (let x = 0; x < navItems.length; x++) {
 
 //dish from database
 function displayDishes(type) {
+    const bill = localStorage.getItem("billId")
     $.ajax({
         type: "GET",
-        url: `https://localhost:7269/api/Dish/dishtype/${type}`,
+        url: `https://localhost:7269/api/Dish/dishtype/${type}/${bill}`,
         encode: false,
     }).done(function (data) {
         loadDishHTML(data)
@@ -52,9 +53,8 @@ function foodImg(data) {
     for (let x = 0; x < data.length; x++) {
         let dish = data[x]
         console.log(dish)
-        dishImg[x].style.backgroundImage = 'url(' + dish.imgPath + ')';
+        dishImg[x].style.backgroundImage = 'url(' + dish.dish.imgPath + ')';
     }
-
 }
 
 function loadDishHTML(data) {
@@ -68,9 +68,9 @@ function loadDishHTML(data) {
     <li class="food">
     <span class="food-img"></span>
     <div class="food-desc">
-    <p class="food-name">${dish.name}</p>
-    <p class="food-ingredients">${dish.description}</p>
-    <div class="food-amount"><span class="min-amount">-</span><p class="amount">0</p><span class="plus-amount">+</span></div>
+    <p class="food-name">${dish.dish.name}</p>
+    <p class="food-ingredients">${dish.dish.description}</p>
+    <div class="food-amount"><span class="min-amount">-</span><p class="amount">${dish.ammount}</p><span class="plus-amount">+</span></div>
     </div>`
 
         const minBtn = foodItem.querySelector(".min-amount")
@@ -103,7 +103,7 @@ function sendDish(dish) {
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify({
-            "dishid": dish.id,
+            "dishid": dish.dish.id,
             "BillId": bill
 
         }),
@@ -116,13 +116,13 @@ function sendDish(dish) {
 function removeDish(dish) {
     const bill = localStorage.getItem("billId")
     $.ajax({
-        type: "POST",
+        type: "DELETE",
         url: `https://localhost:7269/api/Order/delete`,
         encode: false,
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify({
-            "dishid": dish.id,
+            "dishid": dish.dish.id,
             "BillId": bill
 
         }),

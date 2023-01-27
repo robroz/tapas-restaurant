@@ -15,7 +15,8 @@ startBtn.addEventListener("click", function () {
 
 
 function createId() {
-    const persons = parseInt(document.querySelector(".number-input").value)
+    const persons = document.querySelector(".number-input").value
+    console.log(persons)
     $.ajax({
         method: "POST",
         url: `https://localhost:7269/api/Bill/Post`,

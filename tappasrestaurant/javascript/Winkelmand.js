@@ -6,8 +6,8 @@ const productContainer = document.querySelector('.product-container')
 const bgcolor = document.querySelectorAll(".product-info")
 const billId = localStorage.getItem("billId");
 const orderBtn = document.querySelector(".order-button")
+const totalPriceDisplay = document.querySelector("#totalPrice")
 
-console.log(billId)
 RequestOrders()
 
 productContainer.innerHTML = "";
@@ -18,18 +18,24 @@ function RequestOrders() {
         url: `https://localhost:7269/api/Order/dishes/${billId}`,
         encode: false,
     }).done(function (data) {
-
-
-
+        console.log(data.dishes)
+        if(data.dishes.length == 0){
+            orderBtn.style.display = "none";
+        }
         displayOrders(data.dishes)
         checkAmount()
     });
 }
 
 function displayOrders(dishes) {
+let totalprice = 0;
+let productPrice = 0;
     for (let x = 0; x < dishes.length; x++) {
         dishes.sort((a, b) => a.type - b.type);
         let Order = dishes[x]
+        productPrice = Order.dish.price * Order.ammount
+        totalprice +=  productPrice
+
         let product = document.createElement('li');
         product.className = "product";
         product.innerHTML = `
@@ -57,17 +63,18 @@ function displayOrders(dishes) {
             let ammount = this.parentElement.querySelector('.number')
             ammount.textContent = parseInt(ammount.textContent) + 1;
             totalamount.textContent = parseInt(totalamount.textContent) + 1;
+         sendDish(Order) 
         })
 
         remove[x].addEventListener("click", function () {
             let ammount = this.parentElement.querySelector('.number')
-
             if (ammount.textContent == "0") {
                 return
             }
+            removeDish(Order)
             ammount.textContent = ammount.textContent -= 1;
             totalamount.textContent = totalamount.textContent -= 1;
-
+            
 
 
         })
@@ -108,6 +115,45 @@ function displayOrders(dishes) {
         }
 
     }
+    totalPriceDisplay.textContent = totalprice
+}
+
+function sendDish(dish) {
+    const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "POST",
+        url: `https://localhost:7269/api/Order/Post`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({
+            "dishid": dish.dish.id,
+            "BillId": bill
+
+        }),
+    }).done(function (data) {
+        console.log(data)
+
+    });
+}
+
+function removeDish(dish) {
+    const bill = localStorage.getItem("billId")
+    $.ajax({
+        type: "DELETE",
+        url: `https://localhost:7269/api/Order/delete`,
+        encode: false,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({
+            "dishid": dish.dish.id,
+            "BillId": bill
+
+        }),
+    }).done(function (data) {
+        console.log(data)
+    });
+
 }
 
 
@@ -121,11 +167,9 @@ function checkAmount() {
         ok += cringe
         totalamount.textContent = ok
     }
+    
 }
 
-function fillPopup() {
-
-}
 
 
 orderBtn.addEventListener("click", function () {
@@ -135,7 +179,6 @@ orderBtn.addEventListener("click", function () {
         url: `https://localhost:7269/api/Order/dishes/${billId}`,
         encode: false,
     }).done(function (data) {
-
         for (let x = 0; x < data.dishes.length; x++) {
             let order = data.dishes
             console.log(order[x].dish)
